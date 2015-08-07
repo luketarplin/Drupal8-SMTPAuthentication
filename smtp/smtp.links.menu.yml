@@ -1,0 +1,5 @@
+smtp.config:
+  title: 'SMTP Authentication Support'
+  description: 'Allow for site emails to be sent through an SMTP server of your choice.'
+  parent: system.admin_config_development
+  route_name: 'smtp.config'
