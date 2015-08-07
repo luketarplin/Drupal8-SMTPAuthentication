@@ -28,19 +28,19 @@ function smtp_help($path, $arg) {
 /**
  * Implements hook_menu().
  */
-function smtp_menu() {
+/*function smtp_menu() {
   $items['admin/config/system/smtp'] = array(
     'title' => 'SMTP Authentication Support',
     'description' => 'Allow for site emails to be sent through an SMTP server of your choice.',
     'route_name' => 'smtp.config',
   );
   return $items;
-}
+}*/
 
 /**
  * Implements hook_permission().
  */
-function smtp_permission() {
+/*function smtp_permission() {
   return array(
     'administer smtp module' => array(
       'title' => t('Administer SMTP Authentication Support module'),
@@ -48,7 +48,7 @@ function smtp_permission() {
     ),
   );
 }
-
+*/
 
 /**
  * Implements hook_mail().
@@ -91,7 +91,7 @@ function _smtp_mailer_send($variables) {
   $from = $variables['from'];
 
   $logger = \Drupal::logger('smtp');
-  
+
   // Let the people know what is going on.
   $logger->info('Sending mail to: @to', array('@to' => $to));
 

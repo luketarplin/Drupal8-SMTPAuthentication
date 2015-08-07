@@ -2,7 +2,7 @@
 /**
  * @file
  * The code processing mail in the smtp module.
- * 
+ *
  */
 
 namespace Drupal\smtp\Plugin\Mail;
@@ -514,7 +514,14 @@ class SMTPMailSystem implements MailInterface {
     $mailer->Host = $this->smtpConfig->get('smtp_host') . ';' . $this->smtpConfig->get('smtp_hostbackup');
     $mailer->Port = $this->smtpConfig->get('smtp_port');
     $mailer->Mailer = 'smtp';
-
+    $mailer->isSMTP();
+    $mailer->SMTPOptions=array(
+        'ssl' => array(
+            'verify_peer' => false,
+            'verify_peer_name' => false,
+            'allow_self_signed' => true
+        )
+    );
     $mailerArr = array(
       'mailer' => $mailer,
       'to' => $to,
